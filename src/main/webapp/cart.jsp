@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cart</title>
@@ -90,11 +90,6 @@
                             </div>
                             <div class="txtSeat"><p>Seats</p></div>
                             <div class="amountSeat"><p>${numOfSeats}/${numOfPassengers} seat selected</p></div>
-<!--                            <div>
-                                <button class="button">
-                                    <span>Change your seat</span>
-                                </button>
-                            </div>-->
                         </div> 
                     </div>
                     <!-- Payment -->

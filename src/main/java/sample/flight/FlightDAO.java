@@ -40,14 +40,6 @@ public class FlightDAO {
             stmt.setString(2, to);
             stmt.setString(3, date);
             ResultSet rs = stmt.executeQuery();
-
-//            String sql = "SELECT flightID, flightNumber, aircraftID, departureTime, durationInMinutes, economyPrice, businessPrice, remainingEconomySeats, remainingBusinessSeats"
-//                    + " FROM Flight"
-//                    + " WHERE [from] = '" + from + "' AND [to] = '" + to + "' AND departureDate = '" + date + "'"
-//                    + " AND CAST(departureDate AS DATETIME) + CAST(departureTime AS DATETIME) > DATEADD(HOUR, 3, GETDATE())";
-//            PreparedStatement stmt = con.prepareStatement(sql);
-//            ResultSet rs = stmt.executeQuery();
-            
             while (rs.next()) {
                 FlightDTO flight = new FlightDTO();
 

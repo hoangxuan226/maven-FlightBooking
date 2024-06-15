@@ -113,6 +113,8 @@ body {
 .right-side-choose {
     width: 35%;
     background-color: white;
+    padding-top: 100px;
+    padding-left: 20px;
 }
 
 .lower {
@@ -142,10 +144,6 @@ ol {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-}
-
-.seats seat{
-    visibility: hidden; 
 }
 
 .seat {  
@@ -347,10 +345,7 @@ ol {
     padding-left: 30px;
     margin-bottom: 20px;
 }
-.right-side-choose {
-    padding-top: 100px;
-    padding-left: 20px;
-}
+
 .seat-note {
     width: max-content;
     padding: 30px 70px 30px 40px;

@@ -43,7 +43,6 @@ body {
 .row-1 {
     display: flex;
     width: 100%;
-    /* justify-content: space-between; */
     margin-top: 1%;
 }
 .lastName,

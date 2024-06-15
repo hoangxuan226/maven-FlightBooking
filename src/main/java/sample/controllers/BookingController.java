@@ -39,6 +39,7 @@ import sample.utils.Utils;
  * @author phamx
  */
 public class BookingController extends HttpServlet {
+    private static final String DATE_FORMAT = "EEEE, MMMM dd, yyyy";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -68,7 +69,7 @@ public class BookingController extends HttpServlet {
             LocalDate date = null;
             if (sDate != null) {
                 date = LocalDate.parse(sDate);
-                DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy");
+                DateTimeFormatter format = DateTimeFormatter.ofPattern(DATE_FORMAT);
                 sDate = date.format(format);
             }
             request.setAttribute("flightList", flightList);
@@ -210,7 +211,7 @@ public class BookingController extends HttpServlet {
             FlightDTO flight = flightDao.load(flightID);
             AirportDTO fromAirport = airportDao.load(flight.getFrom());
             AirportDTO toAirport = airportDao.load(flight.getTo());
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy");
+            DateTimeFormatter format = DateTimeFormatter.ofPattern(DATE_FORMAT);
             String date = flight.getDepartureDate().format(format);
             String seatType = (String) session.getAttribute("seatType");
             int price = (seatType.equals("business") ? flight.getBusinessPrice() : flight.getEconomyPrice());
@@ -328,7 +329,7 @@ public class BookingController extends HttpServlet {
                     AirportDTO toAirport = airportDao.load(flight.getTo());
                     String seatType = bookingDetailList.get(0).getSeatType();
                     Integer price = bookingDetailList.get(0).getPrice();
-                    DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy");
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern(DATE_FORMAT);
                     String date = flight.getDepartureDate().format(format);
                     
                     HttpSession session = request.getSession(true);
@@ -457,7 +458,7 @@ public class BookingController extends HttpServlet {
                 FlightDTO flight = flightDao.load(flightID);
                 AirportDTO fromAirport = airportDao.load(flight.getFrom());
                 AirportDTO toAirport = airportDao.load(flight.getTo());
-                DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy");
+                DateTimeFormatter format = DateTimeFormatter.ofPattern(DATE_FORMAT);
                 String departureDate = flight.getDepartureDate().format(format);
                 String[] seats = (String[]) session.getAttribute("seats");
                 String seatType = (String) session.getAttribute("seatType");

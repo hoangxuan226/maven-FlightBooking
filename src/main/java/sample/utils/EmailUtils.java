@@ -23,9 +23,13 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtils {
     static Logger logger = Logger.getLogger(EmailUtils.class.getName());
 
-    private final static String fromEmail = "hpx0108@gmail.com";
-    private final static String password = "fvqy ouya cvdi okid";
-    private final static String fromDisplayName = "HVH Airways";
+    public EmailUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    private static final String fromEmail = "hpx0108@gmail.com";
+    private static final String password = "fvqy ouya cvdi okid";
+    private static final String fromDisplayName = "HVH Airways";
 
     public static boolean sendEmail(String toEmail, String subject, String body) {
         Properties props = new Properties();
@@ -36,7 +40,7 @@ public class EmailUtils {
 
         //create Authenticator object to pass in Session.getInstance argument
         Authenticator auth = new Authenticator() {
-            //override the getPasswordAuthentication method
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(fromEmail, password);
             }

@@ -14,14 +14,18 @@ import java.util.Random;
  * @author phamx
  */
 public class Utils {
+    private static final Random RANDOM = new Random();
+
+    public Utils() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static String generatePNR(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder pnrBuilder = new StringBuilder();
-        Random random = new Random();
 
         for (int i = 0; i < length; i++) {
-            int randomIndex = random.nextInt(characters.length());
+            int randomIndex = RANDOM.nextInt(characters.length());
             char randomChar = characters.charAt(randomIndex);
             pnrBuilder.append(randomChar);
         }

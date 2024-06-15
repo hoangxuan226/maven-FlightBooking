@@ -6,7 +6,6 @@
 
 html {
     font-size: 62.5%;
-    /* height: 200vh; */
 }
 
 body {
@@ -51,10 +50,8 @@ body {
 
 .btn-control-adjust {
     display: inline-block;
-    /*padding: 15px 30px;*/
     font-weight: bold;
     height: 100%;
-    /*margin: 10px 0px;*/
     width: 250px;
     background-color: #fdcedd;
     border: none;
@@ -93,7 +90,6 @@ body {
     z-index: 999;
     top: 50%;
     left: 88%;
-    /* right: 1%; */
     transform: translate(-50%, -50%);
 }
 
@@ -195,7 +191,6 @@ body {
 .footer {
     text-align: center;
     background-color: #fbd8e3;
-    /* padding: 1px 0px; */
 }
 
 .footer-btn {
