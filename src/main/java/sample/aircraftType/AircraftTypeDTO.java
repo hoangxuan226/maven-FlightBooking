@@ -19,6 +19,7 @@ public class AircraftTypeDTO implements Serializable {
     private int numberEconomySeats;
 
     public AircraftTypeDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public int getTypeID() {

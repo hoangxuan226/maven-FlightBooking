@@ -27,6 +27,7 @@ public class MemberDTO implements Serializable {
     private String password;
 
     public MemberDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public int getMemberID() {

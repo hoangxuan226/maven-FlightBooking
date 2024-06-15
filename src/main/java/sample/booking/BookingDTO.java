@@ -19,6 +19,7 @@ public class BookingDTO implements Serializable {
     private int totalPrice;
 
     public BookingDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public int getBookingID() {

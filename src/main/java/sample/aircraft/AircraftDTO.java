@@ -18,6 +18,7 @@ public class AircraftDTO implements Serializable {
     private String typeName;
 
     public AircraftDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public int getAircraftID() {

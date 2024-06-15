@@ -18,6 +18,7 @@ public class AirportDTO implements Serializable {
     private String city;
 
     public AirportDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public String getAirportCode() {

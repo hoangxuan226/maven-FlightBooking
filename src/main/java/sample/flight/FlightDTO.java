@@ -33,6 +33,7 @@ public class FlightDTO implements Serializable {
     private int remainingBusinessSeats;
 
     public FlightDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public int getFlightID() {

@@ -18,6 +18,7 @@ public class AdminDTO implements Serializable {
     private String password;
 
     public AdminDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public String getName() {

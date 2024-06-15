@@ -23,6 +23,7 @@ public class PassengerDTO implements Serializable {
     private int memberID;
 
     public PassengerDTO() {
+        // Empty constructor is needed for serialization/deserialization libraries
     }
 
     public int getPassengerID() {
