@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sample.aircraftType.AircraftTypeDAO;
-import sample.aircraftType.AircraftTypeDTO;
+import sample.aircraft_type.AircraftTypeDAO;
+import sample.aircraft_type.AircraftTypeDTO;
 
 /**
  *
