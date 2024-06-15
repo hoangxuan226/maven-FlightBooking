@@ -7,6 +7,7 @@ package sample.utils;
 
 import java.util.Date;
 import java.util.Properties;
+import java.util.logging.Logger;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -20,6 +21,7 @@ import javax.mail.internet.MimeMessage;
  * @author phamx
  */
 public class EmailUtils {
+    static Logger logger = Logger.getLogger(EmailUtils.class.getName());
 
     private final static String fromEmail = "hpx0108@gmail.com";
     private final static String password = "fvqy ouya cvdi okid";
@@ -58,10 +60,10 @@ public class EmailUtils {
             msg.setSentDate(new Date());
 
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-            System.out.println("Message is ready");
+            logger.info("Message is ready");
             Transport.send(msg);
 
-            System.out.println("EMail Sent Successfully!!");
+            logger.info("EMail Sent Successfully!!");
             check = true;
         } catch (Exception e) {
             e.printStackTrace();

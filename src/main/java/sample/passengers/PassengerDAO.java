@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -17,6 +19,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class PassengerDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public Integer insert(PassengerDTO passenger) {
         Integer passengerID = null;
@@ -51,7 +54,7 @@ public class PassengerDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert passenger. Details:" + ex.getMessage());
+            logger.info("Error in insert passenger. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return passengerID;
@@ -79,7 +82,7 @@ public class PassengerDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load passenger. Details:" + ex.getMessage());
+            logger.info("Error in load passenger. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return passenger;
@@ -107,7 +110,7 @@ public class PassengerDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in update passenger. Details:" + ex.getMessage());
+            logger.info("Error in update passenger. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;

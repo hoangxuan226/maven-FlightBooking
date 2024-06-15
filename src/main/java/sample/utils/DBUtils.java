@@ -8,12 +8,15 @@ package sample.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 /**
  *
  * @author phamx
  */
 public class DBUtils {
+    static Logger logger = Logger.getLogger(DBUtils.class.getName());
+
     public static Connection getConnection(){
         
         String url;        
@@ -26,14 +29,14 @@ public class DBUtils {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
-            System.out.println("FLIGHTBOOKING: Can not load JDBC Driver. Please check your pom file");
+            logger.info("FLIGHTBOOKING: Can not load JDBC Driver. Please check your pom file");
         }
         
         try {
             Connection con = DriverManager.getConnection(url, userID, password);
             return con;
         } catch (SQLException ex) {
-            System.out.println("FLIGHTBOOKING: Can not connect SQL Server. Reason: " + ex.getMessage());                        
+            logger.info("FLIGHTBOOKING: Can not connect SQL Server. Reason: " + ex.getMessage());                        
         }
         return null;
     }    

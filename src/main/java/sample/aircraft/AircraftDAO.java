@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -19,6 +21,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class AircraftDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public List<AircraftDTO> list(String keyword) {
         List<AircraftDTO> list = new ArrayList<>();
@@ -45,7 +48,7 @@ public class AircraftDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in list aircrafts. Details:" + ex.getMessage());
+            logger.info("Error in list aircrafts. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
@@ -70,7 +73,7 @@ public class AircraftDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load aircraft. Details:" + ex.getMessage());
+            logger.info("Error in load aircraft. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return aircraft;
@@ -90,7 +93,7 @@ public class AircraftDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in update aircraft. Details:" + ex.getMessage());
+            logger.info("Error in update aircraft. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -114,7 +117,7 @@ public class AircraftDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert aircraft. Details:" + ex.getMessage());
+            logger.info("Error in insert aircraft. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return aircraftID;
@@ -131,7 +134,7 @@ public class AircraftDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in delete aircraft. Details:" + ex.getMessage());
+            logger.info("Error in delete aircraft. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;

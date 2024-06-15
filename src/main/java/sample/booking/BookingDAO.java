@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -18,6 +20,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class BookingDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public BookingDTO load(String reservationCode) {
         BookingDTO booking = null;
@@ -38,7 +41,7 @@ public class BookingDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load booking reservation code. Details:" + ex.getMessage());
+            logger.info("Error in load booking reservation code. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return booking;
@@ -67,7 +70,7 @@ public class BookingDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert booking. Details:" + ex.getMessage());
+            logger.info("Error in insert booking. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return bookingID;
@@ -88,7 +91,7 @@ public class BookingDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert booking. Details:" + ex.getMessage());
+            logger.info("Error in insert booking. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -109,7 +112,7 @@ public class BookingDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in list bookingID by flightID. Details:" + ex.getMessage());
+            logger.info("Error in list bookingID by flightID. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;

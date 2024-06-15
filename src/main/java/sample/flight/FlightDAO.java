@@ -16,6 +16,8 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -23,6 +25,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class FlightDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public List<FlightDTO> findFlights(String from, String to, String date) {
         List<FlightDTO> list = new ArrayList<>();
@@ -78,7 +81,7 @@ public class FlightDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in findFlights. Details:" + ex.getMessage());
+            logger.info("Error in findFlights. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
@@ -119,7 +122,7 @@ public class FlightDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in list flights. Details:" + ex.getMessage());
+            logger.info("Error in list flights. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
@@ -168,7 +171,7 @@ public class FlightDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load flight. Details:" + ex.getMessage());
+            logger.info("Error in load flight. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return flight;
@@ -196,7 +199,7 @@ public class FlightDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in update flight. Details:" + ex.getMessage());
+            logger.info("Error in update flight. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -227,7 +230,7 @@ public class FlightDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert flight. Details:" + ex.getMessage());
+            logger.info("Error in insert flight. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return flightID;
@@ -244,7 +247,7 @@ public class FlightDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in delete flight. Details:" + ex.getMessage());
+            logger.info("Error in delete flight. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -267,7 +270,7 @@ public class FlightDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in list occupired seats. Details:" + ex.getMessage());
+            logger.info("Error in list occupired seats. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;

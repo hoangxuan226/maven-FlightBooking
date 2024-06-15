@@ -9,9 +9,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -19,6 +20,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class AircraftTypeDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public List<AircraftTypeDTO> list(String keyword) {
         List<AircraftTypeDTO> list = new ArrayList<>();
@@ -44,7 +46,7 @@ public class AircraftTypeDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in search aircraft types. Details:" + ex.getMessage());
+            logger.info("Error in search aircraft types. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
@@ -69,7 +71,7 @@ public class AircraftTypeDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load aircraft types. Details:" + ex.getMessage());
+            logger.info("Error in load aircraft types. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return type;
@@ -91,7 +93,7 @@ public class AircraftTypeDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in upload aircraft types. Details:" + ex.getMessage());
+            logger.info("Error in upload aircraft types. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -121,7 +123,7 @@ public class AircraftTypeDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert aircraft types. Details:" + ex.getMessage());
+            logger.info("Error in insert aircraft types. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return typeID;
@@ -138,7 +140,7 @@ public class AircraftTypeDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in delete aircraft types. Details:" + ex.getMessage());
+            logger.info("Error in delete aircraft types. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;

@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -16,6 +18,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class AdminDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public AdminDTO checkLogin(String username, String password) {
         AdminDTO admin = null;
@@ -36,7 +39,7 @@ public class AdminDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in checkLoginAdmin. Details:" + ex.getMessage());
+            logger.info("Error in checkLoginAdmin. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return admin;

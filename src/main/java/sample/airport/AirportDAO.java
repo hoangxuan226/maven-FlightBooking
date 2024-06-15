@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /*
@@ -18,6 +20,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class AirportDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public List<AirportDTO> list() {
         List<AirportDTO> list = new ArrayList<>();
@@ -37,7 +40,7 @@ public class AirportDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in getAllAirports. Details:" + ex.getMessage());
+            logger.info("Error in getAllAirports. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
@@ -61,7 +64,7 @@ public class AirportDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in getAirport. Details:" + ex.getMessage());
+            logger.info("Error in getAirport. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return airport;

@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.passengers.PassengerDTO;
 import sample.utils.DBUtils;
 
@@ -20,6 +22,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class MemberDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public MemberDTO checkLogin(String userIdentity, String password) {
         MemberDTO member = null;
@@ -48,7 +51,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in checkLogin. Details:" + ex.getMessage());
+            logger.info("Error in checkLogin. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return member;
@@ -87,7 +90,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in list members. Details:" + ex.getMessage());
+            logger.info("Error in list members. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
@@ -118,7 +121,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load member by id. Details:" + ex.getMessage());
+            logger.info("Error in load member by id. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return member;
@@ -149,7 +152,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in load member by member number. Details:" + ex.getMessage());
+            logger.info("Error in load member by member number. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return member;
@@ -170,7 +173,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in check email exist. Details:" + ex.getMessage());
+            logger.info("Error in check email exist. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -201,7 +204,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert member. Details:" + ex.getMessage());
+            logger.info("Error in insert member. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return memberID;
@@ -222,7 +225,7 @@ public class MemberDAO {
             }
             con.close();
         } catch (SQLException ex) {
-            System.out.println("Error in get member number. Details:" + ex.getMessage());
+            logger.info("Error in get member number. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return memberno;
@@ -248,7 +251,7 @@ public class MemberDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in update member. Details:" + ex.getMessage());
+            logger.info("Error in update member. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -265,7 +268,7 @@ public class MemberDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in delete member. Details:" + ex.getMessage());
+            logger.info("Error in delete member. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -291,7 +294,7 @@ public class MemberDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in check membership. Details:" + ex.getMessage());
+            logger.info("Error in check membership. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return memberID;

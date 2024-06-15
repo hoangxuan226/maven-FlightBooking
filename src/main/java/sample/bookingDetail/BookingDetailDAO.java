@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import sample.utils.DBUtils;
 
 /**
@@ -18,6 +20,7 @@ import sample.utils.DBUtils;
  * @author phamx
  */
 public class BookingDetailDAO {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public boolean insert(BookingDetailDTO detail) {
         boolean check = false;
@@ -35,7 +38,7 @@ public class BookingDetailDAO {
             check = stmt.executeUpdate() > 0;
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in insert booking detail. Details:" + ex.getMessage());
+            logger.info("Error in insert booking detail. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return check;
@@ -63,7 +66,7 @@ public class BookingDetailDAO {
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Error in list booking detail by bookingID. Details:" + ex.getMessage());
+            logger.info("Error in list booking detail by bookingID. Details:" + ex.getMessage());
             ex.printStackTrace();
         }
         return list;
