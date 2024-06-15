@@ -151,10 +151,9 @@ public class AircraftTypeDAO {
         int numOfSeats = aircraftType.getNumberBusinessSeats();
         char[] arr = {'A', 'F', 'C', 'D'};
 
-        for (int i = 0; i < numOfSeats;) {
+        for (int i = 0; i < numOfSeats; i++) {
             String code = String.format("%d%c", i / 4 + 1, arr[i % 4]);
             seats.add(code);
-            i++;
         }
         return seats;
     }
@@ -167,10 +166,9 @@ public class AircraftTypeDAO {
         int numOfBiz = aircraftType.getNumberBusinessSeats();
         int numOfBizRows = (int) Math.ceil(numOfBiz * 1.0 / 4);
 
-        for (int i = 0; i < numOfEco;) {
+        for (int i = 0; i < numOfEco; i++) {
             String code = String.format("%d%c", numOfBizRows + (i / 6) + 1, arr[i % 6]);
             seats.add(code);
-            i++;
         }
         return seats;
     }
