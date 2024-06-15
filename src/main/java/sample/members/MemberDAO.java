@@ -23,6 +23,16 @@ import sample.utils.DBUtils;
  */
 public class MemberDAO {
     Logger logger = Logger.getLogger(getClass().getName());
+    private static final String COLUMN_MEMBER_ID = "memberID";
+    private static final String COLUMN_MEMBER_NUMBER = "memberNumber";
+    private static final String COLUMN_FIRSTNAME = "firstname";
+    private static final String COLUMN_LASTNAME = "lastname";
+    private static final String COLUMN_BIRTHDAY = "birthday";
+    private static final String COLUMN_GENDER = "gender";
+    private static final String COLUMN_EMAIL = "email";
+    private static final String COLUMN_PHONE_NO = "phoneno";
+    private static final String COLUMN_NATIONAL = "nationality";
+    private static final String COLUMN_NUMBER_ID = "numberID";
 
     public MemberDTO checkLogin(String userIdentity, String password) {
         MemberDTO member = null;
@@ -38,16 +48,16 @@ public class MemberDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 member = new MemberDTO();
-                member.setMemberID(rs.getInt("memberID"));
-                member.setMemberNumber(rs.getString("memberNumber"));
-                member.setFirstname(rs.getString("firstname"));
-                member.setLastname(rs.getString("lastname"));
-                member.setBirthday(rs.getDate("birthday").toLocalDate());
-                member.setGender(rs.getString("gender"));
-                member.setEmail(rs.getString("email"));
-                member.setPhoneno(rs.getString("phoneno"));
-                member.setNationality(rs.getString("nationality"));
-                member.setNumberID(rs.getString("numberID"));
+                member.setMemberID(rs.getInt(COLUMN_MEMBER_ID));
+                member.setMemberNumber(rs.getString(COLUMN_MEMBER_NUMBER));
+                member.setFirstname(rs.getString(COLUMN_FIRSTNAME));
+                member.setLastname(rs.getString(COLUMN_LASTNAME));
+                member.setBirthday(rs.getDate(COLUMN_BIRTHDAY).toLocalDate());
+                member.setGender(rs.getString(COLUMN_GENDER));
+                member.setEmail(rs.getString(COLUMN_EMAIL));
+                member.setPhoneno(rs.getString(COLUMN_PHONE_NO));
+                member.setNationality(rs.getString(COLUMN_NATIONAL));
+                member.setNumberID(rs.getString(COLUMN_NUMBER_ID));
             }
             con.close();
         } catch (SQLException ex) {
@@ -76,16 +86,16 @@ public class MemberDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 MemberDTO member = new MemberDTO();
-                member.setMemberID(rs.getInt("memberID"));
-                member.setMemberNumber(rs.getString("memberNumber"));
-                member.setFirstname(rs.getString("firstname"));
-                member.setLastname(rs.getString("lastname"));
-                member.setBirthday(rs.getDate("birthday").toLocalDate());
-                member.setGender(rs.getString("gender"));
-                member.setEmail(rs.getString("email"));
-                member.setPhoneno(rs.getString("phoneno"));
-                member.setNationality(rs.getString("nationality"));
-                member.setNumberID(rs.getString("numberID"));
+                member.setMemberID(rs.getInt(COLUMN_MEMBER_ID));
+                member.setMemberNumber(rs.getString(COLUMN_MEMBER_NUMBER));
+                member.setFirstname(rs.getString(COLUMN_FIRSTNAME));
+                member.setLastname(rs.getString(COLUMN_LASTNAME));
+                member.setBirthday(rs.getDate(COLUMN_BIRTHDAY).toLocalDate());
+                member.setGender(rs.getString(COLUMN_GENDER));
+                member.setEmail(rs.getString(COLUMN_EMAIL));
+                member.setPhoneno(rs.getString(COLUMN_PHONE_NO));
+                member.setNationality(rs.getString(COLUMN_NATIONAL));
+                member.setNumberID(rs.getString(COLUMN_NUMBER_ID));
                 list.add(member);
             }
             con.close();
@@ -109,15 +119,15 @@ public class MemberDAO {
             if (rs.next()) {
                 member = new MemberDTO();
                 member.setMemberID(memberID);
-                member.setMemberNumber(rs.getString("memberNumber"));
-                member.setFirstname(rs.getString("firstname"));
-                member.setLastname(rs.getString("lastname"));
-                member.setBirthday(rs.getDate("birthday").toLocalDate());
-                member.setGender(rs.getString("gender"));
-                member.setEmail(rs.getString("email"));
-                member.setPhoneno(rs.getString("phoneno"));
-                member.setNationality(rs.getString("nationality"));
-                member.setNumberID(rs.getString("numberID"));
+                member.setMemberNumber(rs.getString(COLUMN_MEMBER_NUMBER));
+                member.setFirstname(rs.getString(COLUMN_FIRSTNAME));
+                member.setLastname(rs.getString(COLUMN_LASTNAME));
+                member.setBirthday(rs.getDate(COLUMN_BIRTHDAY).toLocalDate());
+                member.setGender(rs.getString(COLUMN_GENDER));
+                member.setEmail(rs.getString(COLUMN_EMAIL));
+                member.setPhoneno(rs.getString(COLUMN_PHONE_NO));
+                member.setNationality(rs.getString(COLUMN_NATIONAL));
+                member.setNumberID(rs.getString(COLUMN_NUMBER_ID));
             }
             con.close();
         } catch (SQLException ex) {
@@ -139,16 +149,16 @@ public class MemberDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 member = new MemberDTO();
-                member.setMemberID(rs.getInt("memberID"));
+                member.setMemberID(rs.getInt(COLUMN_MEMBER_ID));
                 member.setMemberNumber(memberNumber);
-                member.setFirstname(rs.getString("firstname"));
-                member.setLastname(rs.getString("lastname"));
-                member.setBirthday(rs.getDate("birthday").toLocalDate());
-                member.setGender(rs.getString("gender"));
-                member.setEmail(rs.getString("email"));
-                member.setPhoneno(rs.getString("phoneno"));
-                member.setNationality(rs.getString("nationality"));
-                member.setNumberID(rs.getString("numberID"));
+                member.setFirstname(rs.getString(COLUMN_FIRSTNAME));
+                member.setLastname(rs.getString(COLUMN_LASTNAME));
+                member.setBirthday(rs.getDate(COLUMN_BIRTHDAY).toLocalDate());
+                member.setGender(rs.getString(COLUMN_GENDER));
+                member.setEmail(rs.getString(COLUMN_EMAIL));
+                member.setPhoneno(rs.getString(COLUMN_PHONE_NO));
+                member.setNationality(rs.getString(COLUMN_NATIONAL));
+                member.setNumberID(rs.getString(COLUMN_NUMBER_ID));
             }
             con.close();
         } catch (SQLException ex) {
@@ -221,7 +231,7 @@ public class MemberDAO {
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                memberno = rs.getString("memberNumber");
+                memberno = rs.getString(COLUMN_MEMBER_NUMBER);
             }
             con.close();
         } catch (SQLException ex) {
@@ -290,7 +300,7 @@ public class MemberDAO {
             stmt.setString(6, passenger.getPhoneno());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                memberID = rs.getInt("memberID");
+                memberID = rs.getInt(COLUMN_MEMBER_ID);
             }
             conn.close();
         } catch (SQLException ex) {
