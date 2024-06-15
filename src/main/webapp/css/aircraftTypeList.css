@@ -45,7 +45,6 @@ body {
     z-index: 999;
     top: 50%;
     left: 88%;
-    /* right: 1%; */
     transform: translate(-50%, -50%);
 }
 

@@ -36,7 +36,6 @@ body {
   justify-content: space-between;
   flex-direction: column;
   width: 60%;
-  /* height: 250px; */
   padding: 1%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: white;
@@ -56,12 +55,10 @@ body {
   font-size: 16px;
   background-color: white;
   font-weight: bold;
-  font-size: larger;
 }
 .rowBooking {
   display: flex;
   justify-content: space-between;
-  /* height: 70px; */
   margin-bottom: 20px;
 }
 .from {

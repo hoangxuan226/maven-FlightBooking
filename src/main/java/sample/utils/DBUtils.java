@@ -17,13 +17,17 @@ import java.util.logging.Logger;
 public class DBUtils {
     static Logger logger = Logger.getLogger(DBUtils.class.getName());
 
+    public DBUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Connection getConnection(){
         
         String url;        
-        if (instance == null || instance.trim().isEmpty()) {
-            url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
+        if (INSTANCE == null || INSTANCE.trim().isEmpty()) {
+            url = "jdbc:sqlserver://" + SERVER_NAME + ":" + PORT_NUMBER + ";databaseName=" + DB_NAME;
         } else{
-            url = "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance + ";databaseName=" + dbName;
+            url = "jdbc:sqlserver://" + SERVER_NAME + ":" + PORT_NUMBER + "\\" + INSTANCE + ";databaseName=" + DB_NAME;
         }
         
         try {
@@ -33,18 +37,17 @@ public class DBUtils {
         }
         
         try {
-            Connection con = DriverManager.getConnection(url, userID, password);
-            return con;
+            return DriverManager.getConnection(url, USER_ID, PASSWORD);
         } catch (SQLException ex) {
             logger.info("FLIGHTBOOKING: Can not connect SQL Server. Reason: " + ex.getMessage());                        
         }
         return null;
     }    
     
-    private final static String serverName = "localhost";
-    private final static String dbName = "FlightBookingDB";
-    private final static String portNumber = "1433";
-    private final static String instance = "";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
-    private final static String userID = "sa";
-    private final static String password = "12345";
+    private static final String SERVER_NAME = "localhost";
+    private static final String DB_NAME = "FlightBookingDB";
+    private static final String PORT_NUMBER = "1433";
+    private static final String INSTANCE = "";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
+    private static final String USER_ID = "sa";
+    private static final String PASSWORD = "12345";
 }
