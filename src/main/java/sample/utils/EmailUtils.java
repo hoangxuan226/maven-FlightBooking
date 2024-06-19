@@ -27,8 +27,8 @@ public class EmailUtils {
         throw new IllegalStateException("Utility class");
     }
 
-    private static final String fromEmail = System.getenv("EMAIL");
-    private static final String password = System.getenv("EMAIL_PASSWORD");
+    private static final String fromEmail = "hpx0108@gmail.com";    //System.getenv("EMAIL");
+    private static final String password = "fvqy ouya cvdi okid";   //System.getenv("EMAIL_PASSWORD");
     private static final String fromDisplayName = "HVH Airways";
 
     public static boolean sendEmail(String toEmail, String subject, String body) {
